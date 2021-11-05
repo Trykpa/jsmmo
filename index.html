@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake Jason</title>
+    <link rel="stylesheet" href="css.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="top">test</div>
+<p id="hp">Życie: 100</p>
+<p id="exp">Doświadczenie: 0</p>
+
+<div id="inventory">
+  <p id="gold">Złoto: 0</p>
+  <p id="level">Poziom: 1</p>
+
+  <table>
+  <tr>
+<td id="item1"><img src="coin.png"></td>
+<td id="item2"></td>
+<td id="item3"></td>
+<td id="item4"></td>
+</tr>
+  <tr>
+<td id="item5"></td>
+<td id="item6"></td>
+<td id="item7"></td>
+<td id="item8"></td>
+</tr>
+  <tr>
+<td id="item9"></td>
+<td id="item10"></td>
+<td id="item11"></td>
+<td id="item12"></td>
+</tr>
+  <tr>
+<td id="item13"></td>
+<td id="item14"></td>
+<td id="item15"></td>
+<td id="item16"></td>
+</tr>
+  <tr>
+<td id="item17"></td>
+<td id="item18"></td>
+<td id="item19"></td>
+<td id="item20"></td>
+</tr>
+  </table>
+
+  <style>
+    table{
+      margin-left:  15%;
+      margin-top:  15%;
+    }
+  </style>
+</div>
+
+
+<canvas id="canvas" width="900" height="700"></canvas>
+
+<div style="display:none;">
+  <img id="bush1"
+       src="bush1.png"
+       width="220" height="175">
+</div>
+<div style="display:none;">
+  <img id="player"
+       src="player.png"
+       width="150" height="1505">
+</div>
+
+
+<script>
+    let player = [{x: 300, y: 300}]
+    generatormapy();
+
+function generatormapy(){
+
+window.onload = function() {
+  var c = document.getElementById("canvas");
+  var ctx = c.getContext("2d");
+  var img = document.getElementById("bush1");
+  var PlayerImg = document.getElementById("player");
+  ctx.drawImage(PlayerImg, player[0].x, player[0].y);
+  ctx.drawImage(img, 75, 85);
+  ctx.drawImage(img, 795, 285);
+  ctx.drawImage(img, 825, 335);
+    ctx.drawImage(img, 695, 425);
+  ctx.drawImage(img, 755, 365);
+
+}}
+
+
+function clearcanvas(){
+            const c = document.getElementById("canvas");
+            const ctxx = c.getContext("2d");
+            ctxx.clearRect(0, 0, canvas.width, canvas.height);
+}
+
+
+//event listener
+window.addEventListener("keydown", onKeyDown, false);
+
+function onKeyDown(event) {
+
+  var keyCode = event.keyCode;
+  switch (keyCode) {
+    case 68: //d
+      player[0].x = player[0].x + 10;
+      clearcanvas();
+      break;
+    case 83: //s
+            player[0].y = player[0].y + 10;
+      clearcanvas();
+      break;
+    case 65: //a
+            player[0].x = player[0].x - 10;
+      clearcanvas();
+      break;
+    case 87: //w
+
+            player[0].y = player[0].y - 10;
+      clearcanvas(); 
+      break;
+  }
+}
+
+
+
+function drawStuff() {
+
+  window.requestAnimationFrame(drawStuff);
+  var c = document.getElementById("canvas");
+  var ctx = c.getContext("2d");
+  var img = document.getElementById("bush1");
+  var PlayerImg = document.getElementById("player");
+  ctx.drawImage(PlayerImg, player[0].x, player[0].y);
+  ctx.drawImage(img, 75, 85);
+  ctx.drawImage(img, 795, 285);
+  ctx.drawImage(img, 825, 335);
+    ctx.drawImage(img, 695, 425);
+  ctx.drawImage(img, 755, 365);
+
+
+}
+window.requestAnimationFrame(drawStuff);
+
+</script>
+
+</body>
+</html>
