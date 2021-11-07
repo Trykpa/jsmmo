@@ -12,16 +12,16 @@
 </head>
 <body>
 <div class="top">MMO RPG Alpha 0.1</div>
+<p id="level">Poziom <p id="levelnumber">1</p></p>
 <p id="hp">Życie: 100</p>
 <p id="exp">Doświadczenie: 0</p>
 
 <div id="inventory">
   <p id="gold">Złoto: 0</p>
-  <p id="level">Poziom: 1</p>
 
   <table>
   <tr>
-<td id="item1"><img src="coin.png"></td>
+<td id="item1"><img src="C:\mmorpg\graphic\items\coin.png"></td>
 <td id="item2"></td>
 <td id="item3"></td>
 <td id="item4"></td>
@@ -73,6 +73,11 @@
        src="C:\mmorpg\graphic\player.png"
        width="150" height="1505">
 </div>
+<div style="display:none;">
+  <img id="wolf"
+       src="C:\mmorpg\graphic\wolf.png"
+       width="50" height="200">
+</div>
 
 
 <script>
@@ -80,19 +85,8 @@
     generatormapy();
 
 function generatormapy(){
-
 window.onload = function() {
-  var c = document.getElementById("canvas");
-  var ctx = c.getContext("2d");
-  var img = document.getElementById("bush1");
-  var PlayerImg = document.getElementById("player");
-  ctx.drawImage(PlayerImg, player[0].x, player[0].y);
-  ctx.drawImage(img, 75, 85);
-  ctx.drawImage(img, 795, 285);
-  ctx.drawImage(img, 825, 335);
-    ctx.drawImage(img, 695, 425);
-  ctx.drawImage(img, 755, 365);
-
+drawStuff();
 }}
 
 
@@ -132,19 +126,21 @@ function onKeyDown(event) {
 
 
 
-function drawStuff() {
+function drawStuff() { ////Rysuje całą mape na nowo
 
   window.requestAnimationFrame(drawStuff);
   var c = document.getElementById("canvas");
   var ctx = c.getContext("2d");
-  var img = document.getElementById("bush1");
+  var BushImg = document.getElementById("bush1");
   var PlayerImg = document.getElementById("player");
+  var WolfImg = document.getElementById("wolf");
   ctx.drawImage(PlayerImg, player[0].x, player[0].y);
-  ctx.drawImage(img, 75, 85);
-  ctx.drawImage(img, 795, 285);
-  ctx.drawImage(img, 825, 335);
-    ctx.drawImage(img, 695, 425);
-  ctx.drawImage(img, 755, 365);
+  ctx.drawImage(WolfImg, 705, 125);
+  ctx.drawImage(BushImg, 75, 85);
+  ctx.drawImage(BushImg, 795, 285);
+  ctx.drawImage(BushImg, 825, 335);
+  ctx.drawImage(BushImg, 695, 425);
+  ctx.drawImage(BushImg, 755, 365);
 
 
 }

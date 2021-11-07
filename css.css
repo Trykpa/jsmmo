@@ -61,3 +61,13 @@ canvas{
 #inventory td{
 	background-color: #8C6529;
 }
+
+#level{
+	margin-top: -3%;
+	margin-left: 0.5%;
+}
+
+#levelnumber{
+	margin-bottom: 2%;
+	margin-left: 2%;
+}
