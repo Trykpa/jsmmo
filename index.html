@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MMO RPG Game</title>
+    <title>MMO RPG Game</title>v
     <link rel="stylesheet" href="css.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,6 +15,10 @@
 <p id="level">Poziom <p id="levelnumber">1</p></p>
 <p id="hp">Życie: 100</p>
 <p id="exp">Doświadczenie: 0</p>
+<div id="questy">
+	Questy:
+	<h1>Zabij wilki (8)</h1>
+</div>
 
 <div id="inventory">
   <p id="gold">Złoto: 0</p>
@@ -81,72 +85,10 @@
 
 
 <script>
+	let CtxTranslate = [{x: 0, y: 0}]
     let player = [{x: 300, y: 300}]
-    generatormapy();
-
-function generatormapy(){
-window.onload = function() {
-drawStuff();
-}}
-
-
-function clearcanvas(){
-            const c = document.getElementById("canvas");
-            const ctxx = c.getContext("2d");
-            ctxx.clearRect(0, 0, canvas.width, canvas.height);
-}
-
-
-//event listener
-window.addEventListener("keydown", onKeyDown, false);
-
-function onKeyDown(event) {
-
-  var keyCode = event.keyCode;
-  switch (keyCode) {
-    case 68: //d
-      player[0].x = player[0].x + 10;
-      clearcanvas();
-      break;
-    case 83: //s
-            player[0].y = player[0].y + 10;
-      clearcanvas();
-      break;
-    case 65: //a
-            player[0].x = player[0].x - 10;
-      clearcanvas();
-      break;
-    case 87: //w
-
-            player[0].y = player[0].y - 10;
-      clearcanvas(); 
-      break;
-  }
-}
-
-
-
-function drawStuff() { ////Rysuje całą mape na nowo
-
-  window.requestAnimationFrame(drawStuff);
-  var c = document.getElementById("canvas");
-  var ctx = c.getContext("2d");
-  var BushImg = document.getElementById("bush1");
-  var PlayerImg = document.getElementById("player");
-  var WolfImg = document.getElementById("wolf");
-  ctx.drawImage(PlayerImg, player[0].x, player[0].y);
-  ctx.drawImage(WolfImg, 705, 125);
-  ctx.drawImage(BushImg, 75, 85);
-  ctx.drawImage(BushImg, 795, 285);
-  ctx.drawImage(BushImg, 825, 335);
-  ctx.drawImage(BushImg, 695, 425);
-  ctx.drawImage(BushImg, 755, 365);
-
-
-}
-window.requestAnimationFrame(drawStuff);
-
 </script>
-
+ <script src="C:\mmorpg\JS\PlayerMovement.js"></script>
+ <script src="C:\mmorpg\JS\MapGenerator.js"></script>
 </body>
 </html>
