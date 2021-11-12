@@ -22,6 +22,7 @@ p{
 
 canvas{
 	background-color:  #228B22;
+	z-index: -1;
 }
 
 #hp{
